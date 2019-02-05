@@ -287,7 +287,7 @@ class Configure(_install):
         if not (tmp_ip == "") or not (default == ""):
             if (tmp_ip == "") and not (default == ""):
                 tmp_ip = default
-            response = os.system("ping -c 1 " + tmp_ip + " > /dev/null")
+            response = os.system("nc -zv " + tmp_ip + " 443 > /dev/null")
             if not response == 0:
                 print(Bcolor.YELLOW + "PRTG Server can not be reached. Please make sure the server is reachable." 
                       + Bcolor.END)
